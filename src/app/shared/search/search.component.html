@@ -1,0 +1,10 @@
+<div class="search">
+  <span class="search-icon" *ngIf="!isInputFocused && !searchText">
+    <img src="assets/search-icon.svg" alt="Search">
+  </span>
+  <input type="text" class="search-input" placeholder="Search"
+         (focus)="isInputFocused = true"
+         (blur)="isInputFocused = false"
+         [placeholder]="isInputFocused ? '' : 'Search'"
+         [(ngModel)]="searchText">
+</div>

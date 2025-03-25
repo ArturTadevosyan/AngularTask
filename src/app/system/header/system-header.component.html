@@ -1,0 +1,91 @@
+<header>
+  <div class="left-block">
+    <button id="toggle" (click)="toggleMenu()" *ngIf="isMobile"
+            [ngClass]="{ 'open': isMenuOpen }">
+      <span></span>
+    </button>
+
+    <div class="logo" *ngIf="isLoggedIn">
+      <img src="assets/IDBusiness-logo.svg" alt="Logo">
+    </div>
+  </div>
+
+  <div class="right-block" [ngClass]="{'mobile-menu-open': isMenuOpen}">
+    <ng-container *ngIf="isLoggedIn">
+      <div class="flex-center search-block">
+        <app-search></app-search>
+      </div>
+    </ng-container>
+
+    <div class="personal-info" *ngIf="isLoggedIn">
+      <div class="person-info">
+        <div class="person-name">
+          {{userData?.firstName}} {{userData?.lastName}}
+        </div>
+
+        <div class="flex-center">
+          <div class="person-passport">
+            {{userData?.passportNumber}}
+          </div>
+          <span class="flex-center more-person-info">
+            <img src="assets/arrow-down.png" alt="" (click)="openPersonMoreInfoPopup()"
+                 [ngStyle]="displayMoreInfoPopup ? {'transform': 'rotate(180deg)'} : {'transform': 'rotate(0)'}">
+
+            <div class="person-more-info-popup" *ngIf="displayMoreInfoPopup">
+              <div class="popup">
+                <div class="w-full close-person-more-info-popup">
+                  <button class="close-button" (click)="closePersonMoreInfoPopup()"></button>
+                </div>
+                <div class="popup-content">
+                  <ul>
+
+                    <li *ngFor="let companyInfo of mockPersonsCompanyInfo, let i = index"
+                        [class.active]="selectedCompanyIndex === i"
+                        (click)="chooseCompany(i)"
+                    >
+                      <div class="popup-content-item">
+                        <input type="checkbox" name="" id="company{{i}}">
+                        <div class="w-full mgl-5 mgr-5 company-name">{{companyInfo.name}}</div>
+                        <div class="t-align-right company-person-position">{{companyInfo.position}}</div>
+                      </div>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </span>
+
+        </div>
+      </div>
+
+      <div class="person-avatar">
+        <img src="assets/avatar.jpg" alt="Avatar">
+      </div>
+    </div>
+
+    <div class="flex-center user-actions">
+      <div class="notifications flex-center" *ngIf="isLoggedIn">
+        <img src="assets/ic_notifications.svg" alt="Notifications">
+        <span class="count-badge notifications-count-badge">2</span>
+      </div>
+      <div class="messages flex-center" *ngIf="isLoggedIn">
+        <img src="assets/ic_massages.svg" alt="Messages">
+        <span class="count-badge messages-count-badge">2</span>
+      </div>
+
+      <div class="settings flex-center" *ngIf="isLoggedIn">
+        <img src="assets/ic_settings.svg" alt="Settings">
+      </div>
+    </div>
+
+    <div class="flex-center lang-switcher">
+      <app-language-bar></app-language-bar>
+    </div>
+
+    <div class="log-out" *ngIf="isLoggedIn" (click)="onLogOut()">
+      <img src="assets/ic_log_out.svg" alt="Log Out">
+    </div>
+  </div>
+</header>
+

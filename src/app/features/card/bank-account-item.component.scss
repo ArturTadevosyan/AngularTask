@@ -1,0 +1,181 @@
+.bank-account {
+  display: flex;
+  width: 900px;
+  height: 88px;
+  align-items: center;
+
+  .card-image {
+    width: 88px;
+    height: 54px;
+    margin-right: 25px;
+
+    img {
+      border-radius: 5px;
+    }
+  }
+
+  .account-card-info {
+    display: flex;
+
+    .account-type {
+      width: 115px;
+      height: 33.46px;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      margin-right: 80px;
+
+      .account-type-info {
+        height: 16px;
+
+        font-size: 14px;
+        line-height: 100%;
+        font-weight: 700;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        width: 100%;
+      }
+    }
+
+
+    .flex-center {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .account-number {
+      width: 145px;
+      height: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 100px;
+
+      .account-number-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 24px;
+        font-size: 14px;
+        line-height: 100%;
+        font-weight: 700;
+      }
+
+      .account-number-text {
+      }
+    }
+
+    .currency {
+      width: 80px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      margin-right: 80px;
+
+      .currency-info {
+        height: 16px;
+        font-size: 14px;
+        line-height: 100%;
+        font-weight: 700;
+      }
+
+    }
+
+    .balance {
+      width: 100px;
+      height: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: start;
+
+      .balance-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 24px;
+        font-size: 14px;
+        line-height: 100%;
+        font-weight: 700;
+
+        .balance-text {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+
+  .eye-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .label-span {
+    margin-bottom: 5px;
+    color: rgba(77, 77, 77, 0.5);
+    font-size: 12px;
+    line-height: 100%;
+    font-weight: 400;
+  }
+
+}
+
+@media (max-width: 800px) {
+  .bank-account {
+    width: 100%;
+    min-width: 320px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 10px 0;
+
+    .account-card-info {
+      display: grid;
+      height: auto;
+      gap: 10px;
+
+      .account-type, .currency, .account-number {
+        margin-right: 0 !important;
+      }
+
+      .account-type-info {
+        max-width: 720px !important;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 800px) and (max-width: 1000px) {
+
+  .system-container {
+    width: 720px !important;
+
+  }
+  .bank-account {
+    width: 680px;
+
+    .account-card-info {
+      .account-type-info {
+        max-width: 720px !important;
+      }
+
+      .account-type, .currency, .account-number {
+        margin-right: 20px;
+      }
+
+    }
+
+
+  }
+}

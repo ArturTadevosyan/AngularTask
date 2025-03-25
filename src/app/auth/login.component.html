@@ -1,0 +1,130 @@
+<app-login-header></app-login-header>
+<div class="login-container">
+  <div class="left-panel">
+    <div class="banner">
+      <div class="logo">
+        <img src="assets/IDBank-logo.svg" alt="Logo">
+      </div>
+      <div class="banner-description">
+        Make all transactions <br>
+        without leaving<br>
+        home
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="login-section">
+
+      <header class="login-header">
+        {{'LOGIN_TITLE' | translate}}
+      </header>
+
+      <div class="login-form">
+
+        <form [formGroup]='loginForm' (ngSubmit)="handleSubmit()" class="form">
+          <div class="">
+            <div class="phone-block">
+              <div class="phone-prefix-block">
+                <label for="countryCode">Select code</label>
+                <div id="countryCode">
+
+                  <span class="code">
+                    <span class="prefix-plus">+</span>
+                    {{selectedPhonePrefix}}
+                  </span>
+
+                  <button class="select-code-button" type="button" (click)="openCountryCodePopup()">
+                    <img src="assets/down-arrow-grey.svg" alt="Choose country Code"
+                         [ngStyle]="displayCountryCodePopup ? {'transform': 'rotate(180deg)'} : {'transform': 'rotate(0)'}">
+                  </button>
+
+                  <div class="prefix-list-popup" *ngIf="displayCountryCodePopup">
+                    <div class="popup">
+
+                      <div class="w-full close-prefix-list-popup">
+                        <button type="button" class="close-button" (click)="closeCountryCodePopup()"></button>
+                      </div>
+
+                      <div class="popup-content">
+                        <ul>
+                          <li *ngFor="let country of countryCodes, let i = index"
+                              (click)="selectCountryCode(country)"
+                              [class.active]="selectedPhonePrefix === country?.countryCode"
+                          >
+                            <div class="popup-content-item">
+
+                              <div class="w-full mgl-5 mgr-5 country-code">
+                                <span class="prefix-plus">+</span>{{country?.countryCode}}
+                              </div>
+
+                              <div class="t-align-right country-name">
+                                {{country?.countryName}}
+                              </div>
+                            </div>
+
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="phone-number-block">
+                <label for="phoneNumber">Enter mobile number</label>
+                <input formControlName='phoneNumber'
+                       type="text"
+                       id="phoneNumber"
+                       class="form-control"
+
+                       placeholder="Phone"/>
+              </div>
+            </div>
+            <div class="form-errors w-full"
+                 *ngIf="loginForm.get('phoneNumber')?.invalid && loginForm.get('phoneNumber')?.touched">
+              <span *ngIf="loginForm.get('phoneNumber')?.errors?.['required']">Phone number is required.</span>
+              <span *ngIf="loginForm.get('phoneNumber')?.errors?.['pattern']">Invalid phone number or format (only numbers).</span>
+            </div>
+          </div>
+          <ng-container *ngIf="loginForm.hasError">
+            <div class="form-errors">{{loginForm.errors}}</div>
+          </ng-container>
+
+          <ng-container *ngIf="showPasswordField">
+            <div class="mb-20 pt-15">
+              <div class="w-full password-block">
+                <label for="password">Enter password</label>
+                <div class="password-input">
+                <span class="show-password" (click)="showPassword()">
+                  <img src="assets/ic_eye_show.svg" alt="">
+                </span>
+                  <input formControlName='password'
+                         [type]="passwordInputType"
+                         id="password"
+                         class="form-control"
+                         placeholder="Password"
+                  />
+
+                </div>
+              </div>
+              <div class="form-errors" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</span>
+              </div>
+            </div>
+
+          </ng-container>
+          <ng-container *ngIf="this.errorMessage">
+            <div class="w-full form-errors">
+              <span>{{this.errorMessage}}</span>
+            </div>
+          </ng-container>
+
+          <div class="w-full login-button pt-15">
+            <button type="submit">{{buttonText}}</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

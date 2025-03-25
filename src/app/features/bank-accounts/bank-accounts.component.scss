@@ -1,0 +1,37 @@
+.bank-account-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 920px;
+  margin-top: 10px;
+  border: 1px solid #FF4733;
+  border-radius: 10px;
+  padding: 0 0 0 20px;
+
+  .divide-line {
+    height: 0.7px;
+    width: 100%;
+    border: none;
+    background: rgba(255, 71, 51, 1);
+  }
+}
+
+@media (max-width: 800px) {
+  .bank-account-list {
+    display: grid;
+    width: 100% !important;
+
+    .divide-line {
+      height: 0.7px;
+      width: 100%;
+      border: none;
+      background: rgba(255, 71, 51, 1);
+    }
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .bank-account-list {
+    width: 700px;
+  }
+}

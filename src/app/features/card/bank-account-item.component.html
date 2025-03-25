@@ -1,0 +1,54 @@
+<div class="bank-account" *ngIf="bankAccount">
+
+  <div class="card-image">
+    <img src="assets/bank-card-image.svg" alt="">
+  </div>
+
+  <div class="account-card-info">
+    <div class="account-type">
+      <span class="label-span">Account type</span>
+      <div class="account-type-info">
+        {{bankAccount.accountType?.toUpperCase()}}
+      </div>
+    </div>
+
+    <div class="account-number">
+      <span class="label-span">Account number</span>
+      <div class="account-number-info">
+      <span class="account-number-text"
+            #hidedAccountNumberElement
+            [appToggleVisibility]="bankAccount.accountNumber || ''"
+            maskChar="*"
+            [maskLength]="12">
+        {{bankAccount.accountNumber}}
+      </span>
+        <span class="eye-icon" (click)="maskText($event, hidedAccountNumberElement)">
+        <img src="assets/Eye-hide.svg" alt="Click to toggle visibility">
+      </span>
+      </div>
+    </div>
+
+    <div class="currency">
+      <span class="label-span">Currency</span>
+      <div class="currency-info">
+        {{bankAccount.currency}}
+      </div>
+    </div>
+
+    <div class="balance">
+      <span class="label-span">Balance</span>
+      <div class="balance-info">
+      <span class="balance-text"
+            #hidedBalanceElement
+            [appToggleVisibility]="bankAccount.balance || ''"
+            maskChar="."
+            [maskLength]="6">
+        {{bankAccount.balance}}
+      </span>
+        <span class="eye-icon" (click)="maskText($event, hidedBalanceElement)">
+        <img src="assets/Eye-hide.svg" alt="Click to toggle visibility">
+      </span>
+      </div>
+    </div>
+  </div>
+</div>

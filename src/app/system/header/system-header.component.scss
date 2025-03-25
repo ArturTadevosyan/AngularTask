@@ -1,0 +1,413 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.mgl-5 {
+  margin-left: 5px;
+}
+
+.mgr-5 {
+  margin-right: 5px;
+}
+
+.t-align-right {
+  text-align: right;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  background-color: #4D4D4D;
+  height: 50px;
+  z-index: 100;
+  color: #ffffff;
+  font-size: 12px;
+
+  .left-block {
+    width: 30%;
+    padding-left: 20px;
+  }
+
+  .right-block {
+    width: 70%;
+    padding-right: 20px;
+    justify-content: right;
+    display: flex;
+
+    .search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 40px;
+
+      .search-input {
+        border: 1px solid #ffffff;
+        border-radius: 24px;
+        gap: 24px;
+      }
+    }
+
+    .personal-info {
+      display: flex;
+      margin-right: 20px;
+      align-items: center;
+      justify-content: center;
+
+      .person-info {
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+
+
+        .person-name {
+          width: 100%;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 12px;
+        }
+
+        .person-passport {
+          width: 100%;
+          font-size: 10px;
+          line-height: 12px;
+          text-align: center;
+          margin-top: 5px;
+        }
+
+        .more-person-info {
+          margin-top: 5px;
+          margin-left: 5px;
+          position: relative;
+
+          img {
+            cursor: pointer;
+          }
+        }
+
+        .person-more-info-popup {
+          position: absolute;
+          top: 20px;
+          right: 0;
+          z-index: 1000;
+          width: 250px;
+          border-radius: 10px;
+          border: 1px solid;
+          padding: 10px 0;
+          background: #ffffff;
+
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25),
+          0px -3px 20px rgba(0, 0, 0, 0.20);
+
+          .popup-content {
+            ul {
+              padding: 0;
+              margin: 0;
+
+              li {
+                display: inline-grid;
+                align-items: center;
+                width: 100%;
+                list-style: none;
+                padding: 10px;
+                height: 48px;
+                border-bottom: 1px solid #ddd;
+                color: #4D4D4D;
+                cursor: pointer;
+
+                .popup-content-item {
+                  height: 20px;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+
+                  .company-name {
+                    font-weight: 700;
+                    font-size: 12px;
+                    line-height: 15px;
+                  }
+
+                  .company-person-position {
+                    font-weight: 700;
+                    font-size: 10px;
+                    line-height: 10px;
+                    vertical-align: middle;
+                    horiz-align: right;
+                  }
+
+                  input {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 3px;
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                  }
+                }
+              }
+
+              .active {
+                background-color: rgba(77, 77, 77, 0.5);
+                color: #FFFFFF;
+              }
+
+              li:last-child {
+                border-bottom: none;
+              }
+            }
+          }
+
+          .close-person-more-info-popup {
+            text-align: right;
+            margin-bottom: 10px;
+            padding-right: 10px;
+
+            .close-button {
+              position: relative;
+              width: 18px;
+              height: 18px;
+              background: rgba(203, 203, 203, 1);
+              border-radius: 50%;
+              border: none;
+              cursor: pointer;
+            }
+
+            .close-button::before,
+            .close-button::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 9.55px;
+              height: 1px;
+              background: #4D4D4D;
+              transform: translate(-50%, -50%) rotate(45deg);
+              transition: background 0.3s ease-in-out;
+            }
+
+            .close-button::after {
+              transform: translate(-50%, -50%) rotate(-45deg);
+            }
+
+            .close-button:hover::before,
+            .close-button:hover::after {
+              background: #FF4733;
+            }
+          }
+        }
+      }
+
+      .person-avatar {
+        width: 26px;
+        height: 26px;
+
+        img {
+          width: 26px;
+          height: 26px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .messages {
+      position: relative;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+
+    .count-badge {
+      font-family: "Roboto", sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 100%;
+      vertical-align: bottom;
+
+      min-width: 12px;
+      height: 12px;
+      padding: 2px;
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background: #FF4733;
+      color: #FFFFFF;
+    }
+
+    .messages-count-badge {
+      position: absolute;
+      top: -7px;
+      left: 10px;
+    }
+
+    .notifications {
+      position: relative;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+
+    .notifications-count-badge {
+      position: absolute;
+      top: -6px;
+      left: 7px;
+    }
+
+    .settings {
+      margin-right: 20px;
+      cursor: pointer;
+    }
+
+    .log-out {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }
+
+  #toggle {
+    display: block;
+    width: 35px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    position: relative;
+  }
+
+  #toggle span,
+  #toggle span:after,
+  #toggle span:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #toggle span {
+    position: relative;
+  }
+
+  #toggle span:before {
+    top: -9px;
+  }
+
+  #toggle span:after {
+    top: 9px;
+  }
+
+  #toggle.open span {
+    background-color: transparent;
+  }
+
+  #toggle.open span:before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  #toggle.open span:after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .left-block {
+    width: 100% !important;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .mobile-toggle {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .logo {
+      padding-right: 20px;
+    }
+  }
+
+  .right-block {
+    display: none !important;
+    flex-direction: column;
+    width: 100% !important;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: 100vh;
+    background: #4D4D4D;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+    .search-block {
+      width: 100%;
+      text-align: center;
+      padding: 20px 0;
+      margin-right: 0 !important;
+    }
+
+    .personal-info {
+      flex-direction: column;
+      text-align: center;
+      margin-right: 0 !important;
+
+      .person-info {
+        text-align: center;
+        padding-bottom: 10px;
+        margin: 0 !important;
+
+        .person-more-info-popup {
+          right: -100px !important;
+        }
+      }
+
+      .person-avatar, .person-avatar img {
+        width: 40px !important;
+        height: 40px !important;;
+      }
+
+    }
+
+    .user-actions {
+      padding: 20px 0;
+
+      .settings {
+        margin-right: 0;
+      }
+    }
+
+    .lang-switcher {
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .log-out {
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+
+  .mobile-menu-open {
+    display: flex !important;
+  }
+
+}

@@ -1,0 +1,6 @@
+<div class="bank-account-list">
+  <ng-container *ngFor="let bankAccount of bankAccounts, let last = last">
+    <app-card [bankAccount]=bankAccount></app-card>
+    <hr *ngIf="!last" class="divide-line">
+  </ng-container>
+</div>

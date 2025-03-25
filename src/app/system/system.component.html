@@ -1,0 +1,41 @@
+<app-system-header
+  [userData]="userInfo.userData || undefined"
+></app-system-header>
+
+<div class="main">
+  <div class="system-container">
+    <nav class="breadcrumb">
+      <a href="#">Breadcrumb1</a>
+      <span>→</span>
+      <a href="#">Breadcrumb2</a>
+      <span>→</span>
+      <a class="active">Breadcrumb3</a>
+    </nav>
+
+    <div class="title">
+      Title
+    </div>
+
+    <div class="bank-account-info">
+      <div class="bank-search">
+        <span class="search-icon">
+          <img src="assets/search-Icon2.svg" alt="" *ngIf="!isInputFocused && !searchText">
+        </span>
+        <input class="search-input" type="text" name="" id="" placeholder="Search"
+               (focus)="isInputFocused = true"
+               (blur)="isInputFocused = false"
+               [placeholder]="isInputFocused ? '' : 'Search'"
+               [(ngModel)]="searchText">
+      </div>
+
+      <app-bank-accounts [bankAccounts]="userInfo.bankAccounts"></app-bank-accounts>
+    </div>
+
+    <div class="additional-info">
+      <div class="additional-info-title">{{'ADDITIONAL_INFO' | translate}}</div>
+      <div class="additional-info-text">
+        {{ 'ADDITIONAL_INFO_DESCRIPTION' | translate}}
+      </div>
+    </div>
+  </div>
+</div>

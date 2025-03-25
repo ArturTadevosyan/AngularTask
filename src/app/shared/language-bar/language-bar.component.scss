@@ -1,0 +1,31 @@
+.language-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  width: 80px;
+
+  font-size: 14px;
+
+  ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-left: 4px;
+      cursor: pointer;
+    }
+
+    li::after {
+      content: '|';
+      margin-left: 4px;
+      font-size: 12px;
+    }
+
+    li:last-child::after {
+      content: '';
+    }
+  }
+}
